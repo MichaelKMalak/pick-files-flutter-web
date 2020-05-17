@@ -37,8 +37,20 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: _files.isNotEmpty
                     ? ListView.separated(
-                        itemBuilder: (BuildContext context, int index) =>
-                            Text(_files[index].name),
+                        itemBuilder: (BuildContext context, int index) => Text(
+                            "name: " +
+                                _files[index].name +
+                                "    ||    " +
+                                "type: " +
+                                _files[index].type +
+                                "    ||    " +
+                                "size: " +
+                                _files[index].size.toString() +
+                                "    ||    " +
+                                "last modified: " +
+                                _files[index]
+                                    .lastModifiedDate
+                                    .toIso8601String()),
                         itemCount: _files.length,
                         separatorBuilder: (_, __) => const Divider(
                           thickness: 5.0,
